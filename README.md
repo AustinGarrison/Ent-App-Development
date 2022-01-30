@@ -1,7 +1,11 @@
 # Ent-App-Development
 Final project for IT4050C
 ## Introduction
-Reserved for introduction
+
+Welcome to Character Creator! This application is a spot to create a D&D style character with some assistance. Everything will be randomized if you choose. 
+We will have the ability to create stats with our very own 20 sided die functionality. We have the ability to save characters with an account, so you can save and return at any time! You will also be able to view other characters from the community. 
+This tool will be a helpful tool for quickly making NPC characters for a campaign or even getting started with your own character to play as during a campaign. 
+
 ## Storyboard
 [Storyboard with clickable button](https://docs.google.com/presentation/d/1_0UgbMf1nwo57A1_PARowoYKrw10Et8TGhOD57-HoLU/edit?usp=sharing)
 
