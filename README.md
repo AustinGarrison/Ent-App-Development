@@ -56,3 +56,8 @@ As a User <br>
   ] <br>
 } <br>
 
+##Scrum Roles
+Project Owner/Scrum Master/Dev Ops- Johnathan Otten <br>
+UI Specialist - Sara Barnes <br>
+Backend Specialist - Joeseph Schmidt <br>
+UI/Backend - Austin Garrison <br>
