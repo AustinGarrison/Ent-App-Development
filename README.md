@@ -13,9 +13,6 @@ This tool will be a helpful tool for quickly making NPC characters for a campaig
 
 <img width="428" alt="Character List" src="https://user-images.githubusercontent.com/47151930/151673185-1565fb13-1450-4941-b861-d5f128d068c6.png">
 
-## Class Diagram
-<img width="430" alt="UML Class Diagram" src="https://cdn.discordapp.com/attachments/764864931715350528/937466338677518386/image0.png">
-
 ## Functional Requirements
 As a User<br>
 • I want to create a character for D&D without having to roll dice for attributes <br>
@@ -40,6 +37,8 @@ As a User <br>
 • Then it gives me the ability to save <br>
 
 
+## Class Diagram
+<img width="430" alt="UML Class Diagram" src="https://cdn.discordapp.com/attachments/764864931715350528/937466338677518386/image0.png">
 
 ## JSON Schema
 {<br>
