@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CharacterController {
     /*
     Handles root endpoint and returns our index.html
+    name is important. don't change the return string.
      */
     @RequestMapping("/")
     public String index(){
