@@ -10,5 +10,5 @@ class CharacterSheet {
     private String characterBackground;
     private String characterClass;
     private String characterRace;
-    private CharacterAttribute[] attributes;
+    private CharacterAttribute attributes;
 }

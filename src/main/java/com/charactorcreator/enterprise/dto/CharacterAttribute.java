@@ -4,10 +4,10 @@ import lombok.Data;
 
 public @Data
 class CharacterAttribute {
-    private long strength;
-    private long dexterity;
-    private long constitution;
-    private long intelligence;
-    private long wisdom;
-    private long charisma;
+    private int strength;
+    private int dexterity;
+    private int constitution;
+    private int intelligence;
+    private int wisdom;
+    private int charisma;
 }
