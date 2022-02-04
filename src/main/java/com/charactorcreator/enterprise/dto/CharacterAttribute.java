@@ -3,7 +3,7 @@ package com.charactorcreator.enterprise.dto;
 import lombok.Data;
 
 public @Data
-class Attribute {
+class CharacterAttribute {
     private long strength;
     private long dexterity;
     private long constitution;
