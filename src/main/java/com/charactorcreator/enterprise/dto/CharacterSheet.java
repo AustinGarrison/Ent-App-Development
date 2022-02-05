@@ -10,5 +10,10 @@ class CharacterSheet {
     private String characterBackground;
     private String characterClass;
     private String characterRace;
-    private CharacterAttribute attributes;
+    private int strength;
+    private int dexterity;
+    private int constitution;
+    private int intelligence;
+    private int wisdom;
+    private int charisma;
 }

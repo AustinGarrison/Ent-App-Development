@@ -1,6 +1,6 @@
 package com.charactorcreator.enterprise;
 
-import com.charactorcreator.enterprise.dto.CharacterAttribute;
+
 import com.charactorcreator.enterprise.dto.CharacterSheet;
 import com.charactorcreator.enterprise.service.ICharacterSheetService;
 import org.junit.jupiter.api.Test;
@@ -53,8 +53,8 @@ class CharacterCreatorApplicationTests {
 
     }
     private void thenReturnStrength14ForID1() {
-        CharacterAttribute attributes = characterSheet.getAttributes();
-        assertEquals(14, attributes.getStrength());
+        int strength = characterSheet.getStrength();
+        assertEquals(14, strength);
 
     }
 
