@@ -27,7 +27,7 @@ public class CharacterController {
         return new ResponseEntity(HttpStatus.OK);
     }
     @PostMapping(value = "/character", consumes = "application/json", produces = "application/json")
-    public Character createCharacter(@RequestBody Character character){
+    public CharacterSheet createCharacter(@RequestBody CharacterSheet character){
         return character;
     }
     @DeleteMapping("/character/{id}/")
