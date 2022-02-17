@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Character Creator</title>
@@ -9,19 +9,20 @@
 </head>
 <body>
 <header>
-    <h1>D&D Character Creator</h1>
+<h3>Welcome to Character Creator! In this form, you will be able to create a character by filling out a few fields and having the form roll for characteristics!</h3>
 </header>
+<br />
 <form>
-    <p>Name:</p> <input type="text" name="Name">
-    <p>Background:</p> <input type="text" name="Background">
-    <p>Race:</p> <input type="text" name="Race">
-    <p>Class:</p> <input type="text" name="Class">
-    <p>Strength:</p> <input type="number" name="Strength">
-    <p>Dexterity:</p> <input type="number" name="Dexterity">
-    <p>Constitution:</p> <input type="number" name="Constitution">
-    <p>Intelligence:</p> <input type="number" name="Intelligence">
-    <p>Wisdom:</p> <input type="number" name="Wisdom">
-    <p>Charisma:</p> <input type="number" name="Charisma">
+    <label>Character Name:</label> <input type="text" id="characterName" /><br />
+    <label>Character Bio:</label> <input type="text" id="characterBio" /><br />
+    <label>Character Class:</label> <select id="class"></select><br />
+    <label>Character Race:</label> <select id="race"></select><br >
+    <label>Strength:</label> <input type="text" disabled="true"><input type="button" id="calculateStrength"><br />
+    <label>Dexterity:</label> <input type="text" disabled="true"><input type="button" id="calculateDexterity"><br />
+    <label>Constitution:</label> <input type="text" disabled="true"><input type="button" id="calculateConstitution"><br />
+    <label>Intelligence:</label> <input type="text" disabled="true"><input type="button" id="calculateIntelligence"><br />
+    <label>Wisdom:</label> <input type="text" disabled="true"><input type="button" id="calculateWisdom"><br />
+    <label>Charisma:</label> <input type="text" disabled="true"><input type="button" id="calculateCharisma"><br />
 </form>
 <button>Save</button>
 <button>View Characters</button>
