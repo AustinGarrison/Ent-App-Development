@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Character Creator</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+<header>
 <h3>Welcome to Character Creator! In this form, you will be able to create a character by filling out a few fields and having the form roll for characteristics!</h3>
+</header>
 <br />
 <form>
     <label>Character Name:</label> <input type="text" id="characterName" /><br />
@@ -19,6 +24,8 @@
     <label>Wisdom:</label> <input type="text" disabled="true"><input type="button" id="calculateWisdom"><br />
     <label>Charisma:</label> <input type="text" disabled="true"><input type="button" id="calculateCharisma"><br />
 </form>
-
+<button>Save</button>
+<button>View Characters</button>
+<button onclick="window.print()">Print</button>
 </body>
 </html>
