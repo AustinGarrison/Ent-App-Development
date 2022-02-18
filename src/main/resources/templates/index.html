@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
+
 <style>
    * {
        margin: 0px;
@@ -22,10 +23,6 @@
         font-weight: bold;
         font-size: 20px;
     }
-    .rollButton {
-        padding: 0px 10px;
-        margin-left: 10px;
-    }
    table, th, td {
        padding: 5px;
    }
@@ -38,14 +35,11 @@
        background-color: #26282A;
        padding: 10px;
    }
-   #form {
-       width: 60%;
+
+   .skillValue {
+       width:50%;
    }
-   #finalButtons {
-       margin-left: auto;
-       margin-right: auto;
-       width: 80%;
-   }
+
    .formButtons{
        font-size: 14px;
        background-color: #aa1212;
@@ -65,79 +59,91 @@
        opacity: .75;
    }
 </style>
+
 <body>
 <header>
 <h4>DnD Character Creator</h4>
 </header>
 
 <h6 id="introduction">Welcome to Character Creator! In this form, you will be able to create a character by filling out a few fields and having the form roll for characteristics!</h6>
-<div id="form">
-    <form>
-        <table>
-            <tr class="bioLine">
-                <td><label>Character Name:</label></td>
-                <td><input type="text" id="characterName" /></td>
-            </tr>
-            <tr class="bioLine">
-                <td><label>Character Bio:</label></td>
-                <td><input type="text" id="characterBio" /></td>
-            </tr>
 
-            <tr class="bioLine">
-                <td><label>Character Class:</label></td>
-                <td><select id="class">
-                    <option value="default">--Select--</option>
-                    <option value="barbarian">Barbarian</option>
-                    <option value="bard">Bard</option>
-                    <option value="cleric">Cleric</option>
-                    <option value="ranger">Ranger</option>
-                    <option value="wizard">Wizard</option>
-                </select></td>
-            </tr>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table>
+                <tr class="bioLine">
+                    <td><label>Character Name:</label></td>
+                    <td><input type="text" id="characterName" /></td>
+                </tr>
+                <tr class="bioLine">
+                    <td><label>Character Bio:</label></td>
+                    <td><input type="text" id="characterBio" /></td>
+                </tr>
 
-            <tr class="bioLine">
-                <td><label>Character Race:</label></td>
-                <td><select id="race">
-                    <option value="default">--Select--</option>
-                    <option value="dwarf">Dwarf</option>
-                    <option value="elf">Elf</option>
-                    <option value="human">Human</option>
-                    <option value="halfling">Halfling</option>
-                    <option value="Gnome">Gnome</option>
-                </select></td>
-            </tr>
+                <tr class="bioLine">
+                    <td><label>Character Class:</label></td>
+                    <td><select id="class">
+                        <option value="default">--Select--</option>
+                        <option value="barbarian">Barbarian</option>
+                        <option value="bard">Bard</option>
+                        <option value="cleric">Cleric</option>
+                        <option value="ranger">Ranger</option>
+                        <option value="wizard">Wizard</option>
+                    </select></td>
+                </tr>
 
-            <tr class="bioLine">
-                <td><label>Strength:</label></td>
-                <td><input type="text" disabled="true"><input class="formButtons" value="Roll" type="button" id="calculateStrength"></td>
-            </tr>
-            <tr class="bioLine">
-                <td><label>Dexterity:</label></td>
-                <td><input type="text" disabled="true"><input class="formButtons" value="Roll" type="button" id="calculateDexterity"></td>
-            </tr>
-            <tr class="bioLine">
-                <td><label>Constitution:</label></td>
-                <td><input type="text" disabled="true"><input class="formButtons" value="Roll" type="button" id="calculateConstitution"></td>
-            </tr>
-            <tr class="bioLine">
-                <td><label>Intelligence:</label></td>
-                <td><input type="text" disabled="true"><input class="formButtons" value="Roll" type="button" id="calculateIntelligence"></td>
-            </tr>
-            <tr class="bioLine">
-                <td><label>Wisdom:</label></td>
-                <td><input type="text" disabled="true"><input class="formButtons" value="Roll" type="button" id="calculateWisdom"></td>
-            </tr>
-            <tr class="bioLine">
-                <td><label>Charisma:</label></td>
-                <td><input type="text" disabled="true"><input class="formButtons" value="Roll" type="button" id="calculateCharisma"></td>
-            </tr>
-        </table>
-    </form>
-    <div id="finalButtons">
-        <button class="formButtons">Save</button>
-        <button class="formButtons">View Characters</button>
-        <button class="formButtons" onclick="window.print()">Print</button>
+                <tr class="bioLine">
+                    <td><label>Character Race:</label></td>
+                    <td><select id="race">
+                        <option value="default">--Select--</option>
+                        <option value="dwarf">Dwarf</option>
+                        <option value="elf">Elf</option>
+                        <option value="human">Human</option>
+                        <option value="halfling">Halfling</option>
+                        <option value="Gnome">Gnome</option>
+                    </select></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col">
+            <table>
+                <tr class="bioLine">
+                    <td><label>Strength:</label></td>
+                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateStrength"></td>
+                </tr>
+                <tr class="bioLine">
+                    <td><label>Dexterity:</label></td>
+                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateDexterity"></td>
+                </tr>
+                <tr class="bioLine">
+                    <td><label>Constitution:</label></td>
+                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateConstitution"></td>
+                </tr>
+                <tr class="bioLine">
+                    <td><label>Intelligence:</label></td>
+                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateIntelligence"></td>
+                </tr>
+                <tr class="bioLine">
+                    <td><label>Wisdom:</label></td>
+                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateWisdom"></td>
+                </tr>
+                <tr class="bioLine">
+                    <td><label>Charisma:</label></td>
+                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateCharisma"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <button class="formButtons">Save</button>
+            <button class="formButtons">View Characters</button>
+            <button class="formButtons" onclick="window.print()">Print</button>
+        </div>
     </div>
 </div>
+
+
 </body>
 </html>
