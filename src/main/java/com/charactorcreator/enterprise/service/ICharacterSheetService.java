@@ -9,4 +9,6 @@ public interface ICharacterSheetService {
      * @return matching character, null if nothing matches
      */
     CharacterSheet getByID(int id);
+
+    CharacterSheet save(CharacterSheet characterSheet) throws Exception;
 }

@@ -4,6 +4,7 @@ import com.charactorcreator.enterprise.dto.CharacterSheet;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -14,7 +15,10 @@ public class CharacterController {
     name is important. don't change the return string.
      */
     @RequestMapping("/")
-    public String index(){
+    public String index(Model model){
+        CharacterSheet characterSheet = new CharacterSheet();
+        characterSheet.setCharacterName("norton");
+        model.addAttribute(characterSheet);
         return "index";
     }
 
