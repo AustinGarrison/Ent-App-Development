@@ -21,10 +21,7 @@ public class CharacterSheetServiceStub implements ICharacterSheetService{
 
     @Override
     public CharacterSheet getByID(int id) {
-        CharacterSheet characterSheet = new CharacterSheet();
-        characterSheet.setStrength(14);
-        characterSheet.setId(1);
-        characterSheet.setCharacterName("John");
+        CharacterSheet characterSheet = characterSheetDAO.getById(id);
         return characterSheet;
     }
 

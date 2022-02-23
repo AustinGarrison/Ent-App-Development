@@ -14,4 +14,9 @@ public class CharacterSheetDAOStub implements ICharacterSheetDAO{
         allCharacterSheets.put(id, characterSheet);
         return characterSheet;
     }
+
+    @Override
+    public CharacterSheet getById(int id) {
+        return allCharacterSheets.get(id);
+    }
 }
