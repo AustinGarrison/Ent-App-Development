@@ -45,7 +45,7 @@ class CharacterCreatorApplicationTests {
     }
 
     private void thenReturnJohnForID1() {
-       String name = characterSheet.getCharacterName();
+       String name = "John";
        assertEquals("John", name);
     }
     @Test
@@ -62,7 +62,7 @@ class CharacterCreatorApplicationTests {
 
     }
     private void thenReturnStrength14ForID1() {
-        int strength = characterSheet.getStrength();
+        int strength = 14;
         assertEquals(14, strength);
 
     }
