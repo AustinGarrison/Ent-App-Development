@@ -10,5 +10,11 @@ public interface ICharacterSheetService {
      */
     CharacterSheet getByID(int id);
 
+    /***
+     * Save a character.
+     * @param CharacterSheet to be saved
+     * @return Saved CharacterSheet
+     * @throws Exception
+     */
     CharacterSheet save(CharacterSheet characterSheet) throws Exception;
 }

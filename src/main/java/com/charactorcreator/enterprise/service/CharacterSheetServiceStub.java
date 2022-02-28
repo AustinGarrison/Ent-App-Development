@@ -10,12 +10,9 @@ public class CharacterSheetServiceStub implements ICharacterSheetService{
 
     private ICharacterSheetDAO characterSheetDAO;
 
-    public CharacterSheetServiceStub(){
-
-    }
+    public CharacterSheetServiceStub(){}
 
     public CharacterSheetServiceStub(ICharacterSheetDAO characterSheetDAO){
-
         this.characterSheetDAO = characterSheetDAO;
     }
 

@@ -26,14 +26,17 @@ public class CharacterController {
     public ResponseEntity getAllCharacters() {
         return new ResponseEntity(HttpStatus.OK);
     }
+
     @GetMapping("/character/{id}/")
     public ResponseEntity getCharacterByID(@PathVariable("id") String id) {
         return new ResponseEntity(HttpStatus.OK);
     }
+
     @PostMapping(value = "/character", consumes = "application/json", produces = "application/json")
     public CharacterSheet createCharacter(@RequestBody CharacterSheet character){
         return character;
     }
+
     @DeleteMapping("/character/{id}/")
     public ResponseEntity deleteCharacter(@PathVariable("id") String id) {
         return new ResponseEntity(HttpStatus.OK);
