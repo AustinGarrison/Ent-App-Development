@@ -15,7 +15,6 @@ public class CharacterSheetServiceStub implements ICharacterSheetService{
     }
 
     public CharacterSheetServiceStub(ICharacterSheetDAO characterSheetDAO){
-
         this.characterSheetDAO = characterSheetDAO;
     }
 

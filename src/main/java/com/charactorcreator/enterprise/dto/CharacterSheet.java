@@ -1,6 +1,5 @@
 package com.charactorcreator.enterprise.dto;
 
-
 import lombok.Data;
 
 public @Data
