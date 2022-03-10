@@ -78,5 +78,16 @@ public class CharacterController {
     public ResponseEntity deleteCharacter(@PathVariable("id") String id) {
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    /**
+     * Handles root endpoint and returns our viewCharacters.html
+     */
+    @RequestMapping("/view-characters")
+    public String viewCharacters(Model model){
+        CharacterSheet characterSheet = new CharacterSheet();
+        characterSheet.setCharacterName("norton");
+        model.addAttribute(characterSheet);
+        return "viewCharacters";
+    }
 }
 
