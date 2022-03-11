@@ -47,3 +47,11 @@ table {
 .formButtons:focus {
     opacity: .75;
 }
+
+.bioLine {
+    padding-top: 5px;
+}
+
+.bottom-buttons {
+    padding-top: 20px;
+}
