@@ -1,36 +1,29 @@
 package com.charactorcreator.enterprise.dao;
 import com.charactorcreator.enterprise.dto.CharacterSheet;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Repository;
-
-import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class CharacterSheetDAOStub implements ICharacterSheetDAO {
     Map<Integer, CharacterSheet> allCharacters = new HashMap<>();
 
+    @Autowired
+    @Qualifier("characterSheetRepository")
+    CharacterSheetRepository characterSheetRepository;
+
     @Override
-    public CharacterSheet save(CharacterSheet characterSheet) throws Exception {
-        allCharacters.put(characterSheet.getId(), characterSheet);
-        return characterSheet;
+    public CharacterSheet save(CharacterSheet characterSheet) {
+        return characterSheetRepository.save(characterSheet);
     }
 
     @Override
-    public List<CharacterSheet> fetchAll() {
-        List<CharacterSheet> returnCharacterSheets = new ArrayList(allCharacters.values());
-        return returnCharacterSheets;
+    public Iterable<CharacterSheet> fetchAll() {
+        return characterSheetRepository.findAll();
     }
 
     @Override
     public CharacterSheet fetch(int id) {
-        return allCharacters.get(id);
-    }
-
-    @Override
-    public void delete(int id) {
-        allCharacters.remove(id);
-
+        return characterSheetRepository.findById(id).get();
     }
 }

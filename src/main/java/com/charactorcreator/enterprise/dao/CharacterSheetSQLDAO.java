@@ -2,42 +2,31 @@ package com.charactorcreator.enterprise.dao;
 
 import com.charactorcreator.enterprise.dto.CharacterSheet;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 
-@Repository
-@Profile({"dev", "default"})
+@Repository ("characterSheetDAO")
 public class CharacterSheetSQLDAO implements ICharacterSheetDAO {
+    Map<Integer, CharacterSheet> allCharacters = new HashMap<>();
+
     @Autowired
     CharacterSheetRepository characterSheetRepository;
 
     @Override
-    public CharacterSheet save(CharacterSheet characterSheet) throws Exception {
-        CharacterSheet createdCharacterSheet = characterSheetRepository.save(characterSheet);
-        return createdCharacterSheet;
+    public CharacterSheet save(CharacterSheet characterSheet){
+        return characterSheetRepository.save(characterSheet);
     }
 
     @Override
-    public List<CharacterSheet> fetchAll() {
-        List<CharacterSheet> allCharacterSheets = new ArrayList<>();
-        Iterable<CharacterSheet> characterSheets = characterSheetRepository.findAll();
-        for (CharacterSheet characterSheet : characterSheets) {
-            allCharacterSheets.add(characterSheet);
-        }
-        return allCharacterSheets;
+    public Iterable<CharacterSheet> fetchAll() {
+        return characterSheetRepository.findAll();
     }
 
     @Override
     public CharacterSheet fetch(int id) {
-        return  characterSheetRepository.findById(id).get();
-    }
-
-    @Override
-    public void delete(int id) {
-        characterSheetRepository.deleteById(id);
+        return characterSheetRepository.findById(id).get();
     }
 }

@@ -16,9 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class CharacterCreatorApplicationTests {
 
-
+    @Autowired
     private ICharacterSheetService characterSheetService;
-    private CharacterSheet characterSheet = new CharacterSheet();
+    private CharacterSheet characterSheet;
 
     @MockBean
     private ICharacterSheetDAO characterSheetDAO;
@@ -41,7 +41,7 @@ class CharacterCreatorApplicationTests {
     }
 
     private void whenSearchForCharacterID1() {
-        characterSheet = characterSheetService.fetchByID(1);
+        characterSheet = characterSheetService.fetch(1);
     }
 
     private void thenReturnJohnForID1() {
@@ -58,7 +58,7 @@ class CharacterCreatorApplicationTests {
 
 
     private void whenSearchForStrength14ID1() {
-        characterSheet = characterSheetService.fetchByID(1);
+        characterSheet = characterSheetService.fetch(1);
 
     }
     private void thenReturnStrength14ForID1() {
