@@ -87,23 +87,23 @@
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateDexterity">Dexterity:</label></td>
-                    <td><input type="text" disabled="disabled" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateDexterity"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Dexterity"><input class="formButtons" value="Roll" type="button" id="calculateDexterity" onclick="calculateAttribute(document.getElementById('Dexterity'));"></td>
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateConstitution">Constitution:</label></td>
-                    <td><input type="text" disabled="disabled" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateConstitution"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Constitution"><input class="formButtons" value="Roll" type="button" id="calculateConstitution"  onclick="calculateAttribute(document.getElementById('Constitution'));"></td>
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateIntelligence">Intelligence:</label></td>
-                    <td><input type="text" disabled="disabled" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateIntelligence"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Intelligence"><input class="formButtons" value="Roll" type="button" id="calculateIntelligence" onclick="calculateAttribute(document.getElementById('Intelligence'));"></td>
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateWisdom">Wisdom:</label></td>
-                    <td><input type="text" disabled="disabled" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateWisdom"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Wisdom"><input class="formButtons" value="Roll" type="button" id="calculateWisdom" onclick="calculateAttribute(document.getElementById('Wisdom'));"></td>
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateWisdom">Charisma:</label></td>
-                    <td><input type="text" disabled="disabled" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateCharisma"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Charisma"><input class="formButtons" value="Roll" type="button" id="calculateCharisma" onclick="calculateAttribute(document.getElementById('Charisma'));"></td>
                 </tr>
             </table>
         </div>
