@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
 <head>
     <meta charset="UTF-8">
     <title>Character Creator</title>
@@ -7,12 +7,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function calculateAttribute(Attribute){
+            var diceRoll = [4];
+            var attributeValue = 0;
+
+            for (let i = 0; i < 4; i++) {
+                diceRoll[i] = Math.floor(Math.random() * 6);
+            }
+
+            diceRoll.sort(function (first, second) {
+               return first - second;
+            });
+
+            for (let i = 0; i < 3; i++) {
+                attributeValue += diceRoll[i];
+            }
+
+            Attribute.value = attributeValue;
+
+            return;
+
+        }
+    </script>
 </head>
 
 <body>
 
 <header>
-<h4>DnD Character Creator</h4>
+    <h4>DnD Character Creator</h4>
 </header>
 
 <h6 id="introduction">Welcome to Character Creator! In this form, you will be able to create a character by filling out a few fields and having the form roll for characteristics!</h6>
@@ -60,27 +83,27 @@
             <table>
                 <tr class="bioLine">
                     <td><label for="calculateStrength">Strength:</label></td>
-                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateStrength"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Strength"><input class="formButtons" value="Roll" type="button" id="calculateStrength" onclick="calculateAttribute(document.getElementById('Strength'));" ></td>
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateDexterity">Dexterity:</label></td>
-                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateDexterity"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Dexterity"><input class="formButtons" value="Roll" type="button" id="calculateDexterity" onclick="calculateAttribute(document.getElementById('Dexterity'));"></td>
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateConstitution">Constitution:</label></td>
-                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateConstitution"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Constitution"><input class="formButtons" value="Roll" type="button" id="calculateConstitution"  onclick="calculateAttribute(document.getElementById('Constitution'));"></td>
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateIntelligence">Intelligence:</label></td>
-                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateIntelligence"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Intelligence"><input class="formButtons" value="Roll" type="button" id="calculateIntelligence" onclick="calculateAttribute(document.getElementById('Intelligence'));"></td>
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateWisdom">Wisdom:</label></td>
-                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateWisdom"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Wisdom"><input class="formButtons" value="Roll" type="button" id="calculateWisdom" onclick="calculateAttribute(document.getElementById('Wisdom'));"></td>
                 </tr>
                 <tr class="bioLine">
                     <td><label for="calculateWisdom">Charisma:</label></td>
-                    <td><input type="text" disabled="true" class="skillValue"><input class="formButtons" value="Roll" type="button" id="calculateCharisma"></td>
+                    <td><input type="text" readonly="true" class="skillValue" id="Charisma"><input class="formButtons" value="Roll" type="button" id="calculateCharisma" onclick="calculateAttribute(document.getElementById('Charisma'));"></td>
                 </tr>
             </table>
         </div>
