@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
 <head>
     <meta charset="UTF-8">
     <title>Character Creator</title>
@@ -7,12 +7,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function calculateAttribute(Attribute){
+            var diceRoll = [4];
+            var attributeValue = 0;
+
+            for (let i = 0; i < 4; i++) {
+                diceRoll[i] = Math.floor(Math.random() * 6);
+            }
+
+            diceRoll.sort(function (first, second) {
+               return first - second;
+            });
+
+            for (let i = 0; i < 3; i++) {
+                attributeValue += diceRoll[i];
+            }
+
+            Attribute.value = attributeValue;
+
+            return;
+
+        }
+    </script>
 </head>
 
 <body>
 
 <header>
-<h4>DnD Character Creator</h4>
+    <h4>DnD Character Creator</h4>
 </header>
 
 <h6 id="introduction">Welcome to Character Creator! In this form, you will be able to create a character by filling out a few fields and having the form roll for characteristics!</h6>
@@ -88,6 +111,7 @@
         <button class="formButtons">Save</button>
         <button class="formButtons">View Characters</button>
         <button class="formButtons" onclick="window.print()">Print</button>
+
     </div>
 </div>
 

@@ -1,14 +1,23 @@
 package com.charactorcreator.enterprise;
 
 import com.charactorcreator.enterprise.dto.CharacterSheet;
+import com.charactorcreator.enterprise.service.CharacterSheetServiceStub;
+import com.charactorcreator.enterprise.service.ICharacterSheetService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class CharacterController {
+   @Autowired
+    ICharacterSheetService characterSheetService;
 
     /**
     * Handles root endpoint and returns our index.html
@@ -30,8 +39,9 @@ public class CharacterController {
      * @return all created characters
      */
     @GetMapping("/character")
-    public ResponseEntity getAllCharacters() {
-        return new ResponseEntity(HttpStatus.OK);
+    @ResponseBody
+    public List<CharacterSheet> fetchAllCharacters() {
+        return characterSheetService.fetchAll();
     }
 
     /**
@@ -45,8 +55,11 @@ public class CharacterController {
      * @return character with the given id
      */
     @GetMapping("/character/{id}/")
-    public ResponseEntity getCharacterByID(@PathVariable("id") String id) {
-        return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity getCharacterByID(@PathVariable("id") int id) {
+        CharacterSheet foundCharacter = characterSheetService.fetchByID(id);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity(foundCharacter, headers, HttpStatus.OK);
     }
 
     /**
@@ -60,8 +73,17 @@ public class CharacterController {
      * @return a json with character information
      */
     @PostMapping(value = "/character", consumes = "application/json", produces = "application/json")
-    public CharacterSheet createCharacter(@RequestBody CharacterSheet character){
-        return character;
+    public ResponseEntity createCharacter(@RequestBody CharacterSheet character){
+        CharacterSheet newCharacter = null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        try {
+            newCharacter = characterSheetService.save(character);
+        } catch (Exception e) {
+
+            return new ResponseEntity(headers, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(newCharacter, headers, HttpStatus.OK);
     }
 
     /**
@@ -77,6 +99,17 @@ public class CharacterController {
     @DeleteMapping("/character/{id}/")
     public ResponseEntity deleteCharacter(@PathVariable("id") String id) {
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    /**
+     * Handles root endpoint and returns our viewCharacters.html
+     */
+    @RequestMapping("/view-characters")
+    public String viewCharacters(Model model){
+        CharacterSheet characterSheet = new CharacterSheet();
+        characterSheet.setCharacterName("norton");
+        model.addAttribute(characterSheet);
+        return "viewCharacters";
     }
 }
 

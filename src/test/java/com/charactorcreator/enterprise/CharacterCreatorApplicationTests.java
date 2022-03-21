@@ -41,7 +41,7 @@ class CharacterCreatorApplicationTests {
     }
 
     private void whenSearchForCharacterID1() {
-        characterSheet = characterSheetService.getByID(1);
+        characterSheet = characterSheetService.fetchByID(1);
     }
 
     private void thenReturnJohnForID1() {
@@ -58,7 +58,7 @@ class CharacterCreatorApplicationTests {
 
 
     private void whenSearchForStrength14ID1() {
-        characterSheet = characterSheetService.getByID(1);
+        characterSheet = characterSheetService.fetchByID(1);
 
     }
     private void thenReturnStrength14ForID1() {
