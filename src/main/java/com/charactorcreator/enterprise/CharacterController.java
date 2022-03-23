@@ -92,7 +92,7 @@ public class CharacterController {
      * Given parameter id, delete character associated with that id
      *
      * Returns one of the following status codes:
-     * 200: character created
+     * 200: character deleted
      * @param id
      * @return
      */
@@ -103,6 +103,12 @@ public class CharacterController {
 
     /**
      * Handles root endpoint and returns our viewCharacters.html
+     *
+     * Returns one of the following status codes:
+     * 200: created characters returned
+     * 400: error returing all created characters
+     * @param model
+     * @return
      */
     @RequestMapping("/view-characters")
     public String viewCharacters(Model model){
