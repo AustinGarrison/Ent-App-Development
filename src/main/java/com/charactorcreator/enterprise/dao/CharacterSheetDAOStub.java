@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Profile("dev")
 public class CharacterSheetDAOStub implements ICharacterSheetDAO {
     Map<Integer, CharacterSheet> allCharacters = new HashMap<>();
 
