@@ -13,11 +13,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Controller
 public class CharacterController {
    @Autowired
     ICharacterSheetService characterSheetService;
+
+    Logger logger = Logger.getAnonymousLogger();
 
     /**
     * Handles root endpoint and returns our index.html
@@ -80,7 +84,7 @@ public class CharacterController {
         try {
             newCharacter = characterSheetService.save(character);
         } catch (Exception e) {
-
+            logger.log(Level.SEVERE, "Exception was thrown while trying to create a character", e);
             return new ResponseEntity(headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity(newCharacter, headers, HttpStatus.OK);
