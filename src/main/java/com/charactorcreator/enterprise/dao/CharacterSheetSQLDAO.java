@@ -32,7 +32,7 @@ public class CharacterSheetSQLDAO implements ICharacterSheetDAO {
     }
 
     @Override
-    public CharacterSheet fetch(int id) {
+    public CharacterSheet fetchById(int id) {
         return  characterSheetRepository.findById(id).get();
     }
 
