@@ -25,8 +25,10 @@ public class CharacterController {
     @RequestMapping("/")
     public String index(Model model){
         CharacterSheet characterSheet = new CharacterSheet();
+
         characterSheet.setCharacterName("norton");
         model.addAttribute(characterSheet);
+
         return "index";
     }
 
@@ -57,8 +59,10 @@ public class CharacterController {
     @GetMapping("/character/{id}/")
     public ResponseEntity getCharacterByID(@PathVariable("id") int id) {
         CharacterSheet foundCharacter = characterSheetService.fetchByID(id);
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+
         return new ResponseEntity(foundCharacter, headers, HttpStatus.OK);
     }
 
@@ -75,14 +79,16 @@ public class CharacterController {
     @PostMapping(value = "/character", consumes = "application/json", produces = "application/json")
     public ResponseEntity createCharacter(@RequestBody CharacterSheet character){
         CharacterSheet newCharacter = null;
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+
         try {
             newCharacter = characterSheetService.save(character);
         } catch (Exception e) {
-
             return new ResponseEntity(headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
         return new ResponseEntity(newCharacter, headers, HttpStatus.OK);
     }
 
@@ -109,6 +115,7 @@ public class CharacterController {
         CharacterSheet characterSheet = new CharacterSheet();
         characterSheet.setCharacterName("norton");
         model.addAttribute(characterSheet);
+
         return "viewCharacters";
     }
 }

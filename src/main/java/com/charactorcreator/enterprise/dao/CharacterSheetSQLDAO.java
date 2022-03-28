@@ -18,6 +18,7 @@ public class CharacterSheetSQLDAO implements ICharacterSheetDAO {
     @Override
     public CharacterSheet save(CharacterSheet characterSheet) throws Exception {
         CharacterSheet createdCharacterSheet = characterSheetRepository.save(characterSheet);
+
         return createdCharacterSheet;
     }
 
@@ -25,9 +26,11 @@ public class CharacterSheetSQLDAO implements ICharacterSheetDAO {
     public List<CharacterSheet> fetchAll() {
         List<CharacterSheet> allCharacterSheets = new ArrayList<>();
         Iterable<CharacterSheet> characterSheets = characterSheetRepository.findAll();
+
         for (CharacterSheet characterSheet : characterSheets) {
             allCharacterSheets.add(characterSheet);
         }
+
         return allCharacterSheets;
     }
 
