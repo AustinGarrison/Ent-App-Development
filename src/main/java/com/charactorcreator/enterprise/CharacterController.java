@@ -111,5 +111,17 @@ public class CharacterController {
         model.addAttribute(characterSheet);
         return "viewCharacters";
     }
-}
+    @PostMapping("/saveCharacter")
+    public String saveCharacterSheet(CharacterSheet characterSheet) {
+
+        try {
+            characterSheetService.save(characterSheet);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            return "index";
+        }
+        return "index";
+    }
+    }
 

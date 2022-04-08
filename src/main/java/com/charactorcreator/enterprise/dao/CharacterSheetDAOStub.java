@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+@Repository
+@Profile("test")
 public class CharacterSheetDAOStub implements ICharacterSheetDAO {
     Map<Integer, CharacterSheet> allCharacters = new HashMap<>();
 

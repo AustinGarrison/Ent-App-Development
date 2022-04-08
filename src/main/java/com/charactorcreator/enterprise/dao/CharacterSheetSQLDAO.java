@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Repository
+@Repository("characterSheetDAO")
 @Profile({"dev", "default"})
 public class CharacterSheetSQLDAO implements ICharacterSheetDAO {
     @Autowired
