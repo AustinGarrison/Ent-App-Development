@@ -48,8 +48,8 @@
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateStrength">Strength:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateStrength" />
+        <input type="text" disabled="true" class="skillValue" id="Strength" />
+        <input class="formButtons" value="Roll" type="button" id="calculateStrength" onclick="calculateAttribute(document.getElementById('Strength'))"/>
     </div>
     <div class="col-6 form-group bioLine">
         <label for="characterBio">Character Bio:</label>
@@ -57,8 +57,8 @@
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateDexterity">Dexterity:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateDexterity" />
+        <input type="text" disabled="true" class="skillValue" id="Dexterity" />
+        <input class="formButtons" value="Roll" type="button" id="calculateDexterity" onclick="calculateAttribute(document.getElementById('Dexterity'))"/>
     </div>
     <div class="col-6 form-group bioLine">
         <label for="class">Character Class:</label>
@@ -73,8 +73,8 @@
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateConstitution">Constitution:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateConstitution" />
+        <input type="text" disabled="true" class="skillValue" id="Constitution"/>
+        <input class="formButtons" value="Roll" type="button" id="calculateConstitution" onclick="calculateAttribute(document.getElementById('Constitution'))"/>
     </div>
     <div class="col-6 form-group bioLine">
         <label for="race">Character Race:</label>
@@ -89,22 +89,22 @@
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateIntelligence">Intelligence:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateIntelligence" />
+        <input type="text" disabled="true" class="skillValue" id="Intelligence"/>
+        <input class="formButtons" value="Roll" type="button" id="calculateIntelligence" onclick="calculateAttribute(document.getElementById('Intelligence'))"/>
     </div>
     <div class = "col-6 bioLine">
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateWisdom">Wisdom:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateWisdom" />
+        <input type="text" disabled="true" class="skillValue" id="Wisdom" />
+        <input class="formButtons" value="Roll" type="button" id="calculateWisdom" onclick="calculateAttribute(document.getElementById('Wisdom'))"/>
     </div>
     <div class = "col-6 bioLine">
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateWisdom">Charisma:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateCharisma" />
+        <input type="text" disabled="true" class="skillValue" id="Charisma"/>
+        <input class="formButtons" value="Roll" type="button" id="calculateCharisma"  onclick="calculateAttribute(document.getElementById('Charisma'))"/>
     </div>
 </div>
 <div class="row justify-content-center bottom-buttons">
