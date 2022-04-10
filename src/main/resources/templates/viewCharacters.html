@@ -1,10 +1,27 @@
-<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-
+<table>
+    <thead>
+    <tr>
+        <th> Character Name </th>
+        <th> Character Race </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${fetchAllCharacters.empty}">
+        <td colspan="2"> No Characters Available </td>
+    </tr>
+    <tr th:each="character : ${fetchAllCharacters}">
+        <td><span th:text="${character.characterName}"> Name </span></td>
+        <td><span th:text="${character.characterRace}"> Race </span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

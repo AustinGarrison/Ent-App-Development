@@ -40,16 +40,16 @@
 </header>
 
 <h6 id="introduction">Welcome to Character Creator! In this form, you will be able to create a character by filling out a few fields and having the form roll for characteristics!</h6>
-
+<form action="#" th:action="@{/character}" method="post" th:object="${characterSheet}">
 <div class="row">
     <div class="col-6 form-group bioLine">
         <label for="characterName">Character Name:</label>
-        <input type="text" id="characterName" th:value="${characterSheet.getCharacterName()}" />
+        <input type="text" id="characterName" th:value="${characterSheet.getCharacterName()}" th:field="*{characterName}"/>
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateStrength">Strength:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateStrength" />
+        <input type="text" disabled="true" class="skillValue" id="Strength" th:field="*{strength}"/>
+        <input class="formButtons" value="Roll" type="button" id="calculateStrength" onclick="calculateAttribute(document.getElementById('Strength'))"/>
     </div>
     <div class="col-6 form-group bioLine">
         <label for="characterBio">Character Bio:</label>
@@ -57,12 +57,12 @@
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateDexterity">Dexterity:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateDexterity" />
+        <input type="text" disabled="true" class="skillValue" id="Dexterity" th:field="*{dexterity}"/>
+        <input class="formButtons" value="Roll" type="button" id="calculateDexterity" onclick="calculateAttribute(document.getElementById('Dexterity'))"/>
     </div>
     <div class="col-6 form-group bioLine">
         <label for="class">Character Class:</label>
-        <select id="class">
+        <select id="class" th:field="*{characterClass}">
             <option value="default">&#45;&#45;Select&#45;&#45;</option>
             <option value="barbarian">Barbarian</option>
             <option value="bard">Bard</option>
@@ -73,12 +73,12 @@
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateConstitution">Constitution:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateConstitution" />
+        <input type="text" disabled="true" class="skillValue" id="Constitution" th:field="*{constitution}"/>
+        <input class="formButtons" value="Roll" type="button" id="calculateConstitution" onclick="calculateAttribute(document.getElementById('Constitution'))"/>
     </div>
     <div class="col-6 form-group bioLine">
         <label for="race">Character Race:</label>
-        <select id="race">
+        <select id="race" th:field="*{characterRace}">
             <option value="default">&#45;&#45;Select&#45;&#45;</option>
             <option value="dwarf">Dwarf</option>
             <option value="elf">Elf</option>
@@ -89,27 +89,27 @@
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateIntelligence">Intelligence:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateIntelligence" />
+        <input type="text" disabled="true" class="skillValue" id="Intelligence" th:field="*{intelligence}"/>
+        <input class="formButtons" value="Roll" type="button" id="calculateIntelligence" onclick="calculateAttribute(document.getElementById('Intelligence'))"/>
     </div>
     <div class = "col-6 bioLine">
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateWisdom">Wisdom:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateWisdom" />
+        <input type="text" disabled="true" class="skillValue" id="Wisdom" th:field="*{wisdom}"/>
+        <input class="formButtons" value="Roll" type="button" id="calculateWisdom" onclick="calculateAttribute(document.getElementById('Wisdom'))"/>
     </div>
     <div class = "col-6 bioLine">
     </div>
     <div class="col-6 form-group bioLine">
         <label for="calculateWisdom">Charisma:</label>
-        <input type="text" disabled="true" class="skillValue" />
-        <input class="formButtons" value="Roll" type="button" id="calculateCharisma" />
+        <input type="text" disabled="true" class="skillValue" id="Charisma" th:field="*{charisma}}"/>
+        <input class="formButtons" value="Roll" type="button" id="calculateCharisma"  onclick="calculateAttribute(document.getElementById('Charisma'))"/>
     </div>
 </div>
 <div class="row justify-content-center bottom-buttons">
     <div class="col-6">
-        <button class="formButtons">Save</button>
+        <button class="formButtons" type="submit">Save</button>
         <button class="formButtons">View Characters</button>
         <button class="formButtons" onclick="window.print()">Print</button>
 
