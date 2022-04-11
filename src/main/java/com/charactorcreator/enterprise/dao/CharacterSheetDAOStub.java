@@ -12,8 +12,16 @@ import java.util.Map;
 @Repository
 @Profile("test")
 public class CharacterSheetDAOStub implements ICharacterSheetDAO {
+    //creates a map of CharacterSheet
     Map<Integer, CharacterSheet> allCharacters = new HashMap<>();
 
+    /**
+     *
+     * @param characterSheet
+     * this method saves each character sheet
+     * @return CharacterSheet Object
+     * @throws Exception
+     */
     @Override
     public CharacterSheet save(CharacterSheet characterSheet) throws Exception {
         allCharacters.put(characterSheet.getId(), characterSheet);
