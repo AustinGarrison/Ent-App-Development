@@ -15,6 +15,8 @@ public interface ICharacterSheetService {
     /**
      * Saves a CharacterSheet.
      * @param characterSheet a CharacterSheet object
+     * @return characterSheet the saved characterSheet object
+     * @throws Exception if the application cannot connect to the database server
      */
     CharacterSheet save(CharacterSheet characterSheet) throws Exception;
 
