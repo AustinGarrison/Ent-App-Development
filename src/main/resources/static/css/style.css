@@ -11,12 +11,7 @@ header {
     font-weight: bold;
     font-size: 20px;
 }
-table, th, td {
-    padding: 5px;
-}
-table {
-    border-spacing: 15px;
-}
+
 .introduction
 {
     text-align: center;
@@ -40,8 +35,8 @@ table {
     max-width: none;
     outline: none;
     overflow: hidden;
-    padding: 5px 20px;
-    margin-left: 5px;
+    padding: 5px 10px;
+    vertical-align: middle;
 }
 .formButtons:hover,
 .formButtons:focus {
@@ -54,4 +49,17 @@ table {
 
 .bottom-buttons {
     padding-top: 20px;
+}
+
+.skillValue {
+    max-width: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+#characterForm {
+    margin-left:20%;
+    width: 80%;
 }

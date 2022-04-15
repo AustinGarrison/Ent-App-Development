@@ -16,6 +16,6 @@ function calculateAttribute(Attribute){
 
     Attribute.value = attributeValue;
 
-    return;
+    return attributeValue;
 
 }

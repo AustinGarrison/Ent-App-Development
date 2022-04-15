@@ -43,7 +43,7 @@
 </header>
 
 <h6 class="introduction">Welcome to Character Creator! In this form, you will be able to create a character by filling out a few fields and having the form roll for characteristics!</h6>
-<form action="#" th:action="@{/saveCharacter}" method="post" th:object="${CharacterSheet}">
+<form action="#" th:action="@{/saveCharacter}" method="post" th:object="${CharacterSheet}" id="characterForm">
     <div class="row">
         <div class="col-6 form-group bioLine">
             <label for="characterName">Character Name:</label>
@@ -52,7 +52,8 @@
         <div class="col-6 form-group bioLine">
             <label for="calculateStrength">Strength:</label>
             <input type="text" disabled="true" class="skillValue" />
-            <button class="formButtons" id="calculateStrength"><i class="fa-solid fa-dice-five"></i> </button>
+            <label for="calculateStrength" class="formButtons"><i class="fa-solid fa-dice-five"></i></label>
+            <input class="hidden" type="button" id="calculateStrength" >
         </div>
         <div class="col-6 form-group bioLine">
             <label for="characterBio">Character Bio:</label>
@@ -61,7 +62,8 @@
         <div class="col-6 form-group bioLine">
             <label for="calculateDexterity">Dexterity:</label>
             <input type="text" disabled="true" class="skillValue" />
-            <button class="formButtons" id="calculateDexterity"><i class="fa-solid fa-dice-five"></i> </button>
+            <label for="calculateDexterity" class="formButtons"><i class="fa-solid fa-dice-five"></i></label>
+            <input class="hidden" type="button" id="calculateDexterity">
         </div>
         <div class="col-6 form-group bioLine">
             <label for="class">Character Class:</label>
@@ -77,7 +79,8 @@
         <div class="col-6 form-group bioLine">
             <label for="calculateConstitution">Constitution:</label>
             <input type="text" disabled="true" class="skillValue" />
-            <button class="formButtons" id="calculateConstitution"><i class="fa-solid fa-dice-five"></i> </button>
+            <label for="calculateConstitution" class="formButtons"><i class="fa-solid fa-dice-five"></i></label>
+            <input class="hidden" type="button" id="calculateConstitution">
         </div>
         <div class="col-6 form-group bioLine">
             <label for="race">Character Race:</label>
@@ -89,25 +92,29 @@
                 <option value="halfling">Halfling</option>
                 <option value="Gnome">Gnome</option>
             </select>
+            </select>
         </div>
         <div class="col-6 form-group bioLine">
             <label for="calculateIntelligence">Intelligence:</label>
             <input type="text" disabled="true" class="skillValue" />
-            <button class="formButtons" id="calculateIntelligence"><i class="fa-solid fa-dice-five"></i> </button>
+            <label for="calculateIntelligence" class="formButtons"><i class="fa-solid fa-dice-five"></i></label>
+            <input class="hidden" type="button" id="calculateIntelligence">
         </div>
         <div class = "col-6 bioLine">
         </div>
         <div class="col-6 form-group bioLine">
             <label for="calculateWisdom">Wisdom:</label>
-            <input type="text" disabled="true" class="skillValue" />
-            <button class="formButtons" id="calculateWisdom"><i class="fa-solid fa-dice-five"></i> </button>
+            <input type="text" disabled="true" class="skillValue" id="Intelligence"/>
+            <label for="calculateWisdom" class="formButtons"><i class="fa-solid fa-dice-five"></i></label>
+            <input class="hidden" type="button" id="calculateWisdom">
         </div>
         <div class = "col-6 bioLine">
         </div>
         <div class="col-6 form-group bioLine">
             <label for="calculateCharisma">Charisma:</label>
             <input type="text" disabled="true" class="skillValue" />
-            <button class="formButtons" id="calculateCharisma"><i class="fa-solid fa-dice-five"></i> </button>
+            <label for="calculateCharisma" class="formButtons"><i class="fa-solid fa-dice-five"></i></label>
+            <input class="hidden" type="button" id="calculateCharisma">
         </div>
     </div>
     <div class="row justify-content-center bottom-buttons">
