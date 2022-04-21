@@ -42,7 +42,7 @@
 </header>
 
 <h6 class="introduction">Welcome to Character Creator! In this form, you will be able to create a character by filling out a few fields and having the form roll for characteristics!</h6>
-<form action="#" th:action="@{/saveCharacter}" method="post" th:object="${CharacterSheet}">
+<form action="#" th:action="@{/saveCharacter}" method="POST" th:object="${character}">
     <div class="row">
         <div class="col-6 form-group bioLine">
             <label for="characterName">Character Name:</label>
@@ -113,7 +113,7 @@
         <div class="col-6">
             <button class="formButtons" type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
             <button class="formButtons" onclick="location.href='viewCharacters.html'">View Characters</button>
-            <button class="formButtons" onclick="window.print()"><i class="fa-solid fa-print"></button>
+            <button class="formButtons" onclick="window.print()"><i class="fa-solid fa-print"></i></button>
 
         </div>
     </div>

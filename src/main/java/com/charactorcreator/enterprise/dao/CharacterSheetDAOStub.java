@@ -44,4 +44,10 @@ public class CharacterSheetDAOStub implements ICharacterSheetDAO {
         allCharacters.remove(id);
 
     }
+
+    @Override
+    public List<CharacterSheet> fetchCharacterByCharacterId(int id) {
+        return fetchCharacterByCharacterId(id);
+    }
+
 }
