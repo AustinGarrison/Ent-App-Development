@@ -35,7 +35,7 @@ public class CharacterSheetDAOStub implements ICharacterSheetDAO {
     }
 
     @Override
-    public CharacterSheet fetch(int id) {
+    public CharacterSheet fetchById(int id) {
         return allCharacters.get(id);
     }
 

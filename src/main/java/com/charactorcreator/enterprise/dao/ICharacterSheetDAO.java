@@ -9,7 +9,7 @@ public interface ICharacterSheetDAO {
 
     List<CharacterSheet> fetchAll();
 
-    CharacterSheet fetch(int id);
+    CharacterSheet fetchById(int id);
 
     void delete(int id);
 }
