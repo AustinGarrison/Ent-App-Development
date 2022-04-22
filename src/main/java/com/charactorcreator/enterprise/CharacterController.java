@@ -145,6 +145,7 @@ public class CharacterController {
 
             return modelAndView;
         }
+        modelAndView.setViewName(returnValue);
         modelAndView.addObject("characterSheet", characterSheet);
         return modelAndView;
     }
