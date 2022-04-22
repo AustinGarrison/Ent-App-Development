@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Repository("characterSheetDAO")
+@Repository
 @Profile({"dev", "default"})
 public class CharacterSheetSQLDAO implements ICharacterSheetDAO {
     @Autowired
@@ -60,5 +60,10 @@ public class CharacterSheetSQLDAO implements ICharacterSheetDAO {
     @Override
     public void delete(int id) {
         characterSheetRepository.deleteById(id);
+    }
+
+    @Override
+    public List<CharacterSheet> fetchCharacterByCharacterId(int id) {
+        return new ArrayList<CharacterSheet>();
     }
 }

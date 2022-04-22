@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>View Characters</title>
@@ -13,5 +13,22 @@
         <h4>Characters</h4>
     </header>
     <h6 class="introduction">Here you can see all of the characters you have created.</h6>
-</body>
+    <table>
+        <thead>
+        <tr>
+            <th> Character Name </th>
+            <th> Character Race </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${fetchAllCharacters.empty}">
+            <td colspan="2"> No Characters Available </td>
+        </tr>
+        <tr th:each="character : ${fetchAllCharacters}">
+            <td><span th:text="${character.characterName}"> Name </span></td>
+            <td><span th:text="${character.characterRace}"> Race </span></td>
+        </tr>
+        </tbody>
+    </table>
+    </body>
 </html>

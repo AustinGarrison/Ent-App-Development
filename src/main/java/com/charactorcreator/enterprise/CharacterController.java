@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -112,16 +113,17 @@ public class CharacterController {
         return "viewCharacters";
     }
     @PostMapping("/saveCharacter")
-    public String saveCharacterSheet(CharacterSheet characterSheet) {
-
+    public ModelAndView saveCharacter(CharacterSheet characterSheet) {
+        ModelAndView modelAndView = new ModelAndView();
         try {
+            modelAndView.setViewName("viewCharacters");
             characterSheetService.save(characterSheet);
         } catch (Exception e) {
             e.printStackTrace();
 
-            return "index";
+            return modelAndView;
         }
-        return "index";
+        return modelAndView;
     }
     }
 

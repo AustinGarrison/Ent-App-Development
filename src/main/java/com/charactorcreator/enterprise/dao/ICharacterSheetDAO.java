@@ -12,4 +12,6 @@ public interface ICharacterSheetDAO {
     CharacterSheet fetch(int id);
 
     void delete(int id);
+
+    List<CharacterSheet> fetchCharacterByCharacterId(int id);
 }

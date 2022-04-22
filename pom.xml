@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.charactorcreator</groupId>
     <artifactId>enterprise</artifactId>
+
     <version>0.0.1-SNAPSHOT</version>
     <name>CharacterCreator</name>
     <description>CharacterCreator</description>
@@ -25,6 +26,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -54,6 +56,7 @@
     </dependencies>
 
     <build>
+        <defaultGoal>test</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -61,7 +64,7 @@
                 <configuration>
                     <excludes>
                         <exclude>
-                            <groupId>org.projectlombok</groupId>
+                            <groupId>org.project-lombok</groupId>
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
