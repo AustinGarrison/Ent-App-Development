@@ -18,7 +18,7 @@ import java.util.List;
 @Controller
 public class CharacterController {
     @Autowired
-    CharacterSheetService characterSheetService;
+    ICharacterSheetService characterSheetService;
 
     /**
      * Handles root endpoint and returns our index.html
@@ -67,15 +67,19 @@ public class CharacterController {
 
 
     @GetMapping("/characters")
-
     public ModelAndView characters() {
 
         ModelAndView modelAndView = new ModelAndView();
-
+        List<CharacterSheet> characters;
         modelAndView.setViewName("viewCharacters");
+        try {
+            characters = characterSheetService.fetchAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelAndView.setViewName("error");
 
-        List<CharacterSheet> characters = characterSheetService.fetchAll();
-
+            return modelAndView;
+        }
         modelAndView.addObject("characters", characters);
 
         return modelAndView;
@@ -136,7 +140,7 @@ public class CharacterController {
     @PostMapping("/saveCharacter")
     public ModelAndView saveCharacter(CharacterSheet characterSheet) {
         ModelAndView modelAndView = new ModelAndView();
-        String returnValue = "index";
+        String returnValue = "success";
         try {
             characterSheetService.save(characterSheet);
         } catch (Exception e) {
@@ -145,8 +149,8 @@ public class CharacterController {
 
             return modelAndView;
         }
-        modelAndView.setViewName(returnValue);
         modelAndView.addObject("characterSheet", characterSheet);
+        modelAndView.setViewName(returnValue);
         return modelAndView;
     }
 }
