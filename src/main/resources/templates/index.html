@@ -42,7 +42,7 @@
 </header>
 
 <h6 class="introduction">Welcome to Character Creator! In this form, you will be able to create a character by filling out a few fields and having the form roll for characteristics!</h6>
-<form action="#" th:action="@{/saveCharacter}" method="POST" th:object="${character}">
+<form action="#" th:action="@{/saveCharacter}" method="POST" th:object="${characterSheet}">
     <div class="row">
         <div class="col-6 form-group bioLine">
             <label for="characterName">Character Name:</label>
@@ -50,16 +50,17 @@
         </div>
         <div class="col-6 form-group bioLine">
             <label for="calculateStrength">Strength:</label>
-            <input type="text" disabled="true" class="skillValue" id="Strength" th:field="*{strength}"/>
+            <input type="text" readonly="true" class="skillValue" id="Strength" th:field="*{strength}"/>
             <input class="formButtons" value="Roll" type="button" id="calculateStrength" onclick="calculateAttribute(document.getElementById('Strength'))"/>
         </div>
         <div class="col-6 form-group bioLine">
             <label for="characterBio">Character Bio:</label>
-            <input type="text" id="characterBio" />
+            <input type="text" id="characterBio" th:field="*{characterBackground}"/>
+
         </div>
         <div class="col-6 form-group bioLine">
             <label for="calculateDexterity">Dexterity:</label>
-            <input type="text" disabled="true" class="skillValue" id="Dexterity" th:field="*{dexterity}"/>
+            <input type="text" readonly="true" class="skillValue" id="Dexterity" th:field="*{dexterity}"/>
             <input class="formButtons" value="Roll" type="button" id="calculateDexterity" onclick="calculateAttribute(document.getElementById('Dexterity'))"/>
         </div>
         <div class="col-6 form-group bioLine">
@@ -75,7 +76,7 @@
         </div>
         <div class="col-6 form-group bioLine">
             <label for="calculateConstitution">Constitution:</label>
-            <input type="text" disabled="true" class="skillValue" id="Constitution" th:field="*{constitution}"/>
+            <input type="text" readonly="true" class="skillValue" id="Constitution" th:field="*{constitution}"/>
             <input class="formButtons" value="Roll" type="button" id="calculateConstitution" onclick="calculateAttribute(document.getElementById('Constitution'))"/>
         </div>
         <div class="col-6 form-group bioLine">
@@ -91,21 +92,21 @@
         </div>
         <div class="col-6 form-group bioLine">
             <label for="calculateIntelligence">Intelligence:</label>
-            <input type="text" disabled="true" class="skillValue" id="Intelligence" th:field="*{intelligence}"/>
+            <input type="text" readonly="true" class="skillValue" id="Intelligence" th:field="*{intelligence}"/>
             <input class="formButtons" value="Roll" type="button" id="calculateIntelligence" onclick="calculateAttribute(document.getElementById('Intelligence'))"/>
         </div>
         <div class = "col-6 bioLine">
         </div>
         <div class="col-6 form-group bioLine">
             <label for="calculateWisdom">Wisdom:</label>
-            <input type="text" disabled="true" class="skillValue" id="Wisdom" th:field="*{wisdom}"/>
+            <input type="text" readonly="true" class="skillValue" id="Wisdom" th:field="*{wisdom}"/>
             <input class="formButtons" value="Roll" type="button" id="calculateWisdom" onclick="calculateAttribute(document.getElementById('Wisdom'))"/>
         </div>
         <div class = "col-6 bioLine">
         </div>
         <div class="col-6 form-group bioLine">
             <label for="calculateWisdom">Charisma:</label>
-            <input type="text" disabled="true" class="skillValue" id="Charisma" th:field="*{charisma}}"/>
+            <input type="text" readonly="true" class="skillValue" id="Charisma" th:field="*{charisma}"/>
             <input class="formButtons" value="Roll" type="button" id="calculateCharisma"  onclick="calculateAttribute(document.getElementById('Charisma'))"/>
         </div>
     </div>

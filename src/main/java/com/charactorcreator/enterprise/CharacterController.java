@@ -17,23 +17,22 @@ import java.util.List;
 
 @Controller
 public class CharacterController {
-   @Autowired
+    @Autowired
     ICharacterSheetService characterSheetService;
 
     /**
-    * Handles root endpoint and returns our index.html
+     * Handles root endpoint and returns our index.html
      */
     @RequestMapping("/")
-    public String index(Model model){
+    public String index(Model model) {
         CharacterSheet characterSheet = new CharacterSheet();
-        characterSheet.setCharacterName("norton");
         model.addAttribute(characterSheet);
         return "index";
     }
 
     /**
      * Get all characters.
-     *
+     * <p>
      * Returns one of the following status codes:
      * 200: characters found
      *
@@ -47,11 +46,12 @@ public class CharacterController {
 
     /**
      * Get character with a given id.
-     *
+     * <p>
      * Given the parameter id, find an item that corresponds to this unique id.
-     *
+     * <p>
      * Returns one of the following status codes:
      * 200: character found
+     *
      * @param id
      * @return character with the given id
      */
@@ -63,18 +63,38 @@ public class CharacterController {
         return new ResponseEntity(foundCharacter, headers, HttpStatus.OK);
     }
 
+
+
+
+    @GetMapping("/characters/{characterId}/")
+
+    public ModelAndView characterByID(@PathVariable("characterId") int characterId) {
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("viewCharacters");
+
+        CharacterSheet characters = characterSheetService.fetchByID(characterId);
+
+        modelAndView.addObject("characters", characters);
+
+        return modelAndView;
+
+    }
+
     /**
      * Create a new character
-     *
+     * <p>
      * Creates a json with the information necessary to create a new character
-     *
+     * <p>
      * Returns one of the following status codes:
      * 200: character created
+     *
      * @param character
      * @return a json with character information
      */
     @PostMapping(value = "/character", consumes = "application/json", produces = "application/json")
-    public ResponseEntity createCharacter(@RequestBody CharacterSheet character){
+    public ResponseEntity createCharacter(@RequestBody CharacterSheet character) {
         CharacterSheet newCharacter = null;
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -89,11 +109,12 @@ public class CharacterController {
 
     /**
      * Delete character
-     *
+     * <p>
      * Given parameter id, delete character associated with that id
-     *
+     * <p>
      * Returns one of the following status codes:
      * 200: character created
+     *
      * @param id
      * @return
      */
@@ -106,24 +127,26 @@ public class CharacterController {
      * Handles root endpoint and returns our viewCharacters.html
      */
     @RequestMapping("/view-characters")
-    public String viewCharacters(Model model){
+    public String viewCharacters(Model model) {
         CharacterSheet characterSheet = new CharacterSheet();
-        characterSheet.setCharacterName("norton");
         model.addAttribute(characterSheet);
         return "viewCharacters";
     }
+
     @PostMapping("/saveCharacter")
     public ModelAndView saveCharacter(CharacterSheet characterSheet) {
         ModelAndView modelAndView = new ModelAndView();
+        String returnValue = "index";
         try {
-            modelAndView.setViewName("viewCharacters");
             characterSheetService.save(characterSheet);
         } catch (Exception e) {
             e.printStackTrace();
+            modelAndView.setViewName("error");
 
             return modelAndView;
         }
+        modelAndView.addObject("characterSheet", characterSheet);
         return modelAndView;
     }
-    }
+}
 
