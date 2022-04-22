@@ -1,6 +1,6 @@
 package com.charactorcreator.enterprise;
 
-import com.charactorcreator.enterprise.dto.CharacterSheet;
+import com.charactorcreator.enterprise.dto.CharacterSheet;import com.charactorcreator.enterprise.service.CharacterSheetService;
 import com.charactorcreator.enterprise.service.CharacterSheetServiceStub;
 import com.charactorcreator.enterprise.service.ICharacterSheetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.List;
 @Controller
 public class CharacterController {
     @Autowired
-    ICharacterSheetService characterSheetService;
+    CharacterSheetService characterSheetService;
 
     /**
      * Handles root endpoint and returns our index.html
@@ -66,15 +66,15 @@ public class CharacterController {
 
 
 
-    @GetMapping("/characters/{characterId}/")
+    @GetMapping("/characters")
 
-    public ModelAndView characterByID(@PathVariable("characterId") int characterId) {
+    public ModelAndView characters() {
 
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.setViewName("viewCharacters");
 
-        CharacterSheet characters = characterSheetService.fetchByID(characterId);
+        List<CharacterSheet> characters = characterSheetService.fetchAll();
 
         modelAndView.addObject("characters", characters);
 
